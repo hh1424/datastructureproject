@@ -101,6 +101,20 @@ public class DataStructure
             System.out.println(s);
         }
               
+        //Ask the user for a word to search for
+        //Search the stack for that word
+        //and print the number of occurances of that word
+        Scanner scan2 = new Scanner(System.in);
+        System.out.println("Please enter a word to search for: ");
+        String word = scan2.nextLine();
+        int count = 0;
+        for (int i = 0; i < stack.size(); i++) {
+            if (word.equals(stack.get(i))) {
+                count++;
+            }
+        }
+        System.out.println("The word " + word + " appears " + count + " times in the file.");
+
         //try reading the data from the file, catching any exceptions
         try{
             while (scan.hasNext()) {
@@ -112,7 +126,7 @@ public class DataStructure
             System.out.println("Ran out of data");
         }  
         return organizedData.toArray(new String[organizedData.size()][]);
-    }
+    }    
 
     //Write the strings to the file
     public static void writeData(String [][] values, String fileName) throws URISyntaxException, IOException {
