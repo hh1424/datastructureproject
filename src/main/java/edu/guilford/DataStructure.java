@@ -100,20 +100,19 @@ public class DataStructure
         for (String s : organizedData) {
             System.out.println(s);
         }
-              
+
         //Ask the user for a word to search for
-        //Search the stack for that word
-        //and print the number of occurances of that word
-        Scanner scan2 = new Scanner(System.in);
         System.out.println("Please enter a word to search for: ");
-        String word = scan2.nextLine();
-        int count = 0;
-        for (int i = 0; i < stack.size(); i++) {
-            if (word.equals(stack.get(i))) {
-                count++;
+        Scanner scan2 = new Scanner(System.in);
+        String searchWord = scan2.nextLine();
+        //Find the searchWord in the occurance class
+        //and print the number of the occurance
+        for (String s : organizedData) {
+            if (s.contains(searchWord)) {
+                //print the number of occurances of the searchWord
+                System.out.println("The word " + searchWord + " appears " + s.substring(s.indexOf(" ") + 1) + " times.");
             }
         }
-        System.out.println("The word " + word + " appears " + count + " times in the file.");
 
         //try reading the data from the file, catching any exceptions
         try{
